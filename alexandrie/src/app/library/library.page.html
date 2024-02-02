@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Bibilothèque
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Bibilothèque</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="margin-hz-s">
+    <h2>Bibliothèque de livres</h2>
+    <h3>{{ books?.length }} titres</h3>
+    <div *ngFor="let book of books" (click)="selectBook(book)">
+      <div class="flex margin-vt-m" style="height: 200px">
+        <div><img class="border-radius" [src]="book.img" height="200px"/></div>
+        <div class="flex full-height margin-left-l">
+          <div class="flex flex-column justify-content-center">
+            <div class="bold">
+            {{ book.title }}
+          </div>
+          <div class="margin-top-s">
+            Par {{ book.author }}
+          </div>
+        </div>
+        </div>
+        
+      </div>
+      </div>
+  </div> 
+</ion-content>

@@ -1,0 +1,192 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+
+
+/* Atomic SCSS style */
+.flex {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.border-radius {
+    border-radius: 20px;
+}
+
+.border-radius-s {
+  border-radius: 10px;
+}
+
+.full-height {
+    height: 100%;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.font-size-icon {
+  font-size: 25px;
+}
+
+
+// Padding
+$padding-s: 8px; // Petit
+$padding-m: 16px; // Moyen
+$padding-l: 24px; // Grand
+
+// Margin
+$margin-s: 8px; // Petit
+$margin-m: 16px; // Moyen
+$margin-l: 24px; // Grand
+
+@mixin margin-left($size) {
+    margin-left: $size;
+  }
+  
+  @mixin margin-right($size) {
+    margin-right: $size;
+  }
+  
+  @mixin margin-top($size) {
+    margin-top: $size;
+  }
+  
+  @mixin margin-bottom($size) {
+    margin-bottom: $size;
+  }
+  
+  @mixin padding-left($size) {
+    padding-left: $size;
+  }
+  
+  @mixin padding-right($size) {
+    padding-right: $size;
+  }
+  
+  @mixin padding-top($size) {
+    padding-top: $size;
+  }
+  
+  @mixin padding-bottom($size) {
+    padding-bottom: $size;
+  }
+
+  @mixin margin-vertical($size) {
+    margin-top: $size;
+    margin-bottom: $size;
+  }
+  
+  @mixin margin-horizontal($size) {
+    margin-left: $size;
+    margin-right: $size;
+  }
+  
+  @mixin padding-vertical($size) {
+    padding-top: $size;
+    padding-bottom: $size;
+  }
+  
+  @mixin padding-horizontal($size) {
+    padding-left: $size;
+    padding-right: $size;
+  }
+
+// Margin Left
+.margin-left-s { @include margin-left($margin-s); }
+.margin-left-m { @include margin-left($margin-m); }
+.margin-left-l { @include margin-left($margin-l); }
+
+// Margin Right
+.margin-right-s { @include margin-right($margin-s); }
+.margin-right-m { @include margin-right($margin-m); }
+.margin-right-l { @include margin-right($margin-l); }
+
+// Margin Top
+.margin-top-s { @include margin-top($margin-s); }
+.margin-top-m { @include margin-top($margin-m); }
+.margin-top-l { @include margin-top($margin-l); }
+
+// Margin Bottom
+.margin-bottom-s { @include margin-bottom($margin-s); }
+.margin-bottom-m { @include margin-bottom($margin-m); }
+.margin-bottom-l { @include margin-bottom($margin-l); }
+
+// Padding Left
+.padding-left-s { @include padding-left($padding-s); }
+.padding-left-m { @include padding-left($padding-m); }
+.padding-left-l { @include padding-left($padding-l); }
+
+// Padding Right
+.padding-right-s { @include padding-right($padding-s); }
+.padding-right-m { @include padding-right($padding-m); }
+.padding-right-l { @include padding-right($padding-l); }
+
+// Padding Top
+.padding-top-s { @include padding-top($padding-s); }
+.padding-top-m { @include padding-top($padding-m); }
+.padding-top-l { @include padding-top($padding-l); }
+
+// Padding Bottom
+.padding-bottom-s { @include padding-bottom($padding-s); }
+.padding-bottom-m { @include padding-bottom($padding-m); }
+.padding-bottom-l { @include padding-bottom($padding-l); }
+
+// Margin Vertical
+.margin-vt-s { @include margin-vertical($margin-s); }
+.margin-vt-m { @include margin-vertical($margin-m); }
+.margin-vt-l { @include margin-vertical($margin-l); }
+
+// Margin Horizontal
+.margin-hz-s { @include margin-horizontal($margin-s); }
+.margin-hz-m { @include margin-horizontal($margin-m); }
+.margin-hz-l { @include margin-horizontal($margin-l); }
+
+// Padding Vertical
+.padding-vt-s { @include padding-vertical($padding-s); }
+.padding-vt-m { @include padding-vertical($padding-m); }
+.padding-vt-l { @include padding-vertical($padding-l); }
+
+// Padding Horizontal
+.padding-hz-s { @include padding-horizontal($padding-s); }
+.padding-hz-m { @include padding-horizontal($padding-m); }
+.padding-hz-l { @include padding-horizontal($padding-l); }

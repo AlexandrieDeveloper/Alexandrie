@@ -1,0 +1,7 @@
+{
+  "name": "alexandrie",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
