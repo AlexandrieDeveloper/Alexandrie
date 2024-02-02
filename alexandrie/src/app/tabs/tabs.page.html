@@ -2,9 +2,9 @@
 <ion-tabs>
   
   <div *ngIf="selectedBook" style="z-index: 100; background-color: white;">
-      <div class="audio-player margin-vt-m">
+      <div class="audio-player margin-vt-s">
         <ion-item lines="none">
-          <img [src]="selectedBook.img" class="border-radius-s" height="100px">
+          <img [src]="selectedBook.img" class="border-radius-s" height="80px">
           <div class="margin-left-l">
             <ion-label class="bold">
               {{ selectedBook?.title }}
@@ -16,8 +16,8 @@
           <ion-button class="font-size-icon"  fill="clear" slot="end" (click)="rewind30Seconds()">
             <ion-icon  style="transform: rotate(180deg);" name="reload"></ion-icon>
           </ion-button>
-          <ion-button class="font-size-icon"  fill="clear" slot="end" (click)="playAudio()">
-            <ion-icon name="play-circle"></ion-icon>
+          <ion-button class="font-size-icon"  fill="clear" slot="end" (click)="isBookPlaying ? pauseAudio() : playAudio()">
+            <ion-icon [name]="isBookPlaying ? 'pause-circle' : 'play-circle'"></ion-icon>
           </ion-button>
         </ion-item>
       </div>

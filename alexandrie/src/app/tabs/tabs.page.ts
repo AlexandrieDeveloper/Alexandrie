@@ -1,7 +1,7 @@
 import { Component, EnvironmentInjector, inject } from '@angular/core';
 import { IonTabs, IonTabBar, IonTabButton, IonIcon, IonLabel, IonItem } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { triangle, ellipse, square, playSkipBack, playSkipForward, playCircle, reload } from 'ionicons/icons';
+import { triangle, ellipse, square, playSkipBack, playSkipForward, playCircle, pauseCircle, reload } from 'ionicons/icons';
 import { BookReaderService } from '../book-reader.service';
 import { CommonModule } from '@angular/common';
 import { Book } from '../library/library.page';
@@ -18,15 +18,21 @@ export class TabsPage {
   public environmentInjector = inject(EnvironmentInjector);
 
   constructor(public bookReaderService: BookReaderService) {
-    addIcons({ triangle, ellipse, square, playSkipBack, playSkipForward, playCircle, reload});
+    addIcons({ triangle, ellipse, square, playSkipBack, playSkipForward, playCircle, pauseCircle, reload});
     bookReaderService.bookSelected$.subscribe(book => this.selectBook(book));
   }
 
   selectedBook: Book | null = null;
   audio: HTMLAudioElement | null = null;
   remainingTime: string | null = null;
+  isBookPlaying: boolean = false;
 
   selectBook(book: Book) {
+    if (this.audio) {
+      this.pauseAudio();
+      this.audio = null;
+    }
+
     this.selectedBook = book;
     this.audio = new Audio(book.audioUrl);
     this.playAudio();
@@ -34,6 +40,14 @@ export class TabsPage {
     this.audio.addEventListener('timeupdate', () => {
       const remaining = this.audio ? this.audio.duration - this.audio.currentTime : 0;
       this.remainingTime = this.formatTime(remaining);
+    });
+
+    this.audio.addEventListener('pause', () => {
+      this.isBookPlaying = false;
+    });
+  
+    this.audio.addEventListener('play', () => {
+      this.isBookPlaying = true;
     });
   }
 

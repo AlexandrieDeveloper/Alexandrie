@@ -13,6 +13,8 @@ $RECYCLE.BIN/
 log.txt
 
 
+/src/assets/audio/*
+
 /.sourcemaps
 /.versions
 /coverage
