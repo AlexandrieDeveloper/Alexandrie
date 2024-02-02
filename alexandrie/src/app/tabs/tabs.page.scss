@@ -1,1 +1,25 @@
+ion-button {
+    --padding-start: 4px !important;
+    --padding-end: 4px !important;
+  }
 
+@media screen and (max-width: 465px) {
+    ion-button {
+      --padding-start: 12px !important;
+      --padding-end: 12px !important;
+    }
+  }
+  
+  @media screen and (min-width: 466px) and (max-width: 520px) {
+    ion-button {
+      --padding-start: 16px !important;
+      --padding-end: 16px !important;
+    }
+  }
+  
+  @media screen and (min-width: 521px) {
+    ion-button {
+      --padding-start: 32px !important;
+      --padding-end: 32 px !important;
+    }
+  }

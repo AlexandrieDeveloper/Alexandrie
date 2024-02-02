@@ -4,8 +4,8 @@
   <div *ngIf="selectedBook" style="z-index: 100; background-color: white;">
       <div class="audio-player margin-vt-s">
         <ion-item lines="none">
-          <img [src]="selectedBook.img" class="border-radius-s" height="80px">
-          <div class="margin-left-l">
+          <img [src]="selectedBook.img" class="border-radius-s" style="margin: auto" height="80px">
+          <div class="margin-left-l margin-top-s">
             <ion-label class="bold">
               {{ selectedBook?.title }}
             </ion-label>
@@ -13,29 +13,26 @@
               Temps restant : {{ remainingTime }}
             </ion-label>
           </div>
-          <ion-button class="font-size-icon"  fill="clear" slot="end" (click)="rewind30Seconds()">
-            <ion-icon  style="transform: rotate(180deg);" name="reload"></ion-icon>
-          </ion-button>
-          <ion-button class="font-size-icon"  fill="clear" slot="end" (click)="isBookPlaying ? pauseAudio() : playAudio()">
-            <ion-icon [name]="isBookPlaying ? 'pause-circle' : 'play-circle'"></ion-icon>
-          </ion-button>
+          <div style="margin: auto">
+            <ion-button  style="margin: auto" class="font-size-icon"  fill="clear" slot="end" (click)="rewind30Seconds()">
+              <ion-icon  style="transform: rotate(180deg);" name="reload"></ion-icon>
+            </ion-button>
+            <ion-button style="margin: auto" class="font-size-icon"  fill="clear" slot="end" (click)="isBookPlaying ? pauseAudio() : playAudio()">
+              <ion-icon [name]="isBookPlaying ? 'pause-circle' : 'play-circle'"></ion-icon>
+            </ion-button>
+          </div>
         </ion-item>
       </div>
   </div> 
   <ion-tab-bar slot="bottom">
     <ion-tab-button tab="library" href="/tabs/library">
-      <ion-icon aria-hidden="true" name="triangle"></ion-icon>
+      <ion-icon aria-hidden="true" name="book"></ion-icon>
       <ion-label>Bibilothèque</ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="tab2" href="/tabs/tab2">
-      <ion-icon aria-hidden="true" name="ellipse"></ion-icon>
-      <ion-label>Store</ion-label>
-    </ion-tab-button>
-
-    <ion-tab-button tab="tab3" href="/tabs/tab3">
-      <ion-icon aria-hidden="true" name="square"></ion-icon>
-      <ion-label>Tab 3</ion-label>
+      <ion-icon aria-hidden="true" name="copy"></ion-icon>
+      <ion-label>Parcourir</ion-label>
     </ion-tab-button>
   </ion-tab-bar>
 </ion-tabs>

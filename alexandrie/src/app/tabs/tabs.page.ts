@@ -1,7 +1,7 @@
 import { Component, EnvironmentInjector, inject } from '@angular/core';
 import { IonTabs, IonTabBar, IonTabButton, IonIcon, IonLabel, IonItem } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { triangle, ellipse, square, playSkipBack, playSkipForward, playCircle, pauseCircle, reload } from 'ionicons/icons';
+import { book, copy, square, playSkipBack, playSkipForward, playCircle, pauseCircle, reload } from 'ionicons/icons';
 import { BookReaderService } from '../book-reader.service';
 import { CommonModule } from '@angular/common';
 import { Book } from '../library/library.page';
@@ -18,7 +18,7 @@ export class TabsPage {
   public environmentInjector = inject(EnvironmentInjector);
 
   constructor(public bookReaderService: BookReaderService) {
-    addIcons({ triangle, ellipse, square, playSkipBack, playSkipForward, playCircle, pauseCircle, reload});
+    addIcons({ book, copy, square, playSkipBack, playSkipForward, playCircle, pauseCircle, reload});
     bookReaderService.bookSelected$.subscribe(book => this.selectBook(book));
   }
 
