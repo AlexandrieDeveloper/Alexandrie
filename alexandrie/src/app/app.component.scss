@@ -1,0 +1,66 @@
+::ng-deep .ripple {
+    position: fixed;
+    border-radius: 50%;
+    height: 20px;
+    opacity: 0.6;
+    width: 20px;
+    background: white;
+    animation: ripple-animation 0.5s ease-out;
+    pointer-events: none; /* Pour éviter d'interférer avec d'autres éléments cliquables */
+  }
+  
+  @keyframes ripple-animation {
+    to {
+      transform: scale(4);
+      opacity: 0;
+    }
+  }
+
+  ::ng-deep .screen-border {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none; /* Permet les clics à travers */
+    border: 0px solid white; /* Bordure initiale invisible */
+    box-sizing: border-box;
+    border-radius: 50%;
+    opacity: 0;
+  }
+
+  
+.screen-border::before {
+    content: '';
+    position: absolute;
+    top: 0; /* Agrandir légèrement pour un effet de bordure */
+    left: 0;
+    width: calc(100% + 0px); /* Ajuster en fonction de l'épaisseur de la bordure désirée */
+    height: calc(100% + 0px);
+    background: radial-gradient(circle at center, transparent, rgba(255,255,255,0) 70%, rgba(255,255,255,1) 100%);
+    pointer-events: none;
+  
+  }
+
+  /* Classe spécifique pour l'animation */
+.animate-border {
+    animation: border-wave-animation 3s ease-out;
+  }
+  
+  @keyframes border-wave-animation {
+    0% {
+        transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+        transform: scale(2);
+      opacity: 0;
+    }
+  }
+  
+
+  .container {
+    border: 5px solid white;
+    border-radius: 50px;
+    overflow: hidden;
+  }
