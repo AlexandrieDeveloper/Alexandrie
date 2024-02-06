@@ -1,0 +1,25 @@
+.campfire-container {
+    background-image: url('/assets/img/fire.jfif');
+    background-size: cover; /* ajuste l'image à la taille de l'élément */
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+}
+
+  ::ng-deep .particles-container {
+    position: relative;
+    top: 0;
+    width: 100px;
+    height: 100%;
+    margin: auto;
+    pointer-events: none; /* Pour que les particules ne bloquent pas les interactions avec l'image */
+  }
+  
+  ::ng-deep .particle {
+    z-index: 10000;
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: orange;
+  }
+  

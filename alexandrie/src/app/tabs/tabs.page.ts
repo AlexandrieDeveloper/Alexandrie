@@ -1,11 +1,12 @@
 import { Component, EnvironmentInjector, inject } from '@angular/core';
 import { IonTabs, IonTabBar, IonTabButton, IonIcon, IonLabel, IonItem } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { book, copy, square, playSkipBack, playSkipForward, playCircle, pauseCircle, reload } from 'ionicons/icons';
+import { book, flame, square, playSkipBack, playSkipForward, playCircle, pauseCircle, reload } from 'ionicons/icons';
 import { BookReaderService } from '../book-reader.service';
 import { CommonModule } from '@angular/common';
 import { Book } from '../library/library.page';
 import { IonButton, IonContent, IonAvatar } from '@ionic/angular/standalone';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tabs',
@@ -17,13 +18,14 @@ import { IonButton, IonContent, IonAvatar } from '@ionic/angular/standalone';
 export class TabsPage {
   public environmentInjector = inject(EnvironmentInjector);
 
-  constructor(public bookReaderService: BookReaderService) {
-    addIcons({ book, copy, square, playSkipBack, playSkipForward, playCircle, pauseCircle, reload});
+  constructor(public bookReaderService: BookReaderService, private router: Router) {
+    addIcons({ book, flame, square, playSkipBack, playSkipForward, playCircle, pauseCircle, reload});
     bookReaderService.bookSelected$.subscribe(book => this.selectBook(book));
   }
 
   selectedBook: Book | null = null;
   audio: HTMLAudioElement | null = null;
+  crackingFire: HTMLAudioElement | null = null;
   remainingTime: string | null = null;
   isBookPlaying: boolean = false;
 
@@ -31,11 +33,13 @@ export class TabsPage {
     if (this.audio) {
       this.pauseAudio();
       this.audio = null;
+      this.crackingFire?.pause();
+      this.crackingFire = null;
     }
 
     this.selectedBook = book;
     this.audio = new Audio(book.audioUrl);
-    this.playAudio();
+    setTimeout(() => this.playAudio(), 2000 ) ;
 
     this.audio.addEventListener('timeupdate', () => {
       const remaining = this.audio ? this.audio.duration - this.audio.currentTime : 0;
@@ -49,6 +53,19 @@ export class TabsPage {
     this.audio.addEventListener('play', () => {
       this.isBookPlaying = true;
     });
+
+    this.router.navigate(['/tabs/tab2']);
+
+    this.playFire()
+  }
+
+  playFire() {
+    // const lightingFire = new Audio('/assets/audio/lighting-fire.mp3');
+    this.crackingFire = new Audio('/assets/audio/fireAmplifie.mp3');
+    this.crackingFire.loop = true;
+    this.crackingFire.volume = 0.8;
+    // lightingFire.play();
+    this.crackingFire.play();
   }
 
   playAudio() {

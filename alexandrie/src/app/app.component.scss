@@ -1,3 +1,10 @@
+
+  .container {
+    border: 3px solid white;
+    border-radius: 50px;
+    overflow: hidden;
+  }
+
 ::ng-deep .ripple {
     position: fixed;
     border-radius: 50%;
@@ -5,6 +12,7 @@
     opacity: 0.6;
     width: 20px;
     background: white;
+    
     animation: ripple-animation 0.5s ease-out;
     pointer-events: none; /* Pour éviter d'interférer avec d'autres éléments cliquables */
   }
@@ -49,18 +57,11 @@
   
   @keyframes border-wave-animation {
     0% {
-        transform: scale(1);
+        transform: scale(1.1);
       opacity: 1;
     }
     100% {
         transform: scale(2);
       opacity: 0;
     }
-  }
-  
-
-  .container {
-    border: 5px solid white;
-    border-radius: 50px;
-    overflow: hidden;
   }

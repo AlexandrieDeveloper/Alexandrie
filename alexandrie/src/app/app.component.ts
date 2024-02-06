@@ -35,7 +35,7 @@ export class AppComponent implements OnInit {
     this.showAniamtion = true;
     setTimeout(() => {
       this.showAniamtion = false;
-    }, 2000); // Léger délai pour permettre la réinitialisation de l'animation
+    }, 1500); // Léger délai pour permettre la réinitialisation de l'animation
 
   }
 }
