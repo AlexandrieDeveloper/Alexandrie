@@ -61,7 +61,7 @@ export class TabsPage {
 
   playFire() {
     // const lightingFire = new Audio('/assets/audio/lighting-fire.mp3');
-    this.crackingFire = new Audio('/assets/audio/fireAmplifie.mp3');
+    this.crackingFire = new Audio('assets/audio/fireAmplifie.mp3');
     this.crackingFire.loop = true;
     this.crackingFire.volume = 0.8;
     // lightingFire.play();
