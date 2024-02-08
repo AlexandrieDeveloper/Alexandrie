@@ -18,14 +18,14 @@
     <h3>{{ books?.length }} titres</h3>
     <div *ngFor="let book of books" (click)="selectBook(book)">
       <div class="flex margin-vt-m" style="max-height: 200px">
-        <div><img class="border-radius" [src]="book.img" style="max-height: 200px"/></div>
+        <div style="flex-shrink: 0;"><img class="border-radius" [src]="book.img" style="max-width: 200px;  max-height: 200px;  width: 39vw;"/></div>
         <div class="flex full-height margin-left-l">
           <div class="flex flex-column justify-content-center">
             <div class="bold">
             {{ book.title }}
           </div>
           <div class="margin-top-s">
-            Par {{ book.author }}
+            {{ book.author }}
           </div>
         </div>
         </div>

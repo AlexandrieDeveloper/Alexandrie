@@ -39,7 +39,8 @@ export class TabsPage {
 
     this.selectedBook = book;
     this.audio = new Audio(book.audioUrl);
-    setTimeout(() => this.playAudio(), 2000 ) ;
+    setTimeout(() => this.audio?.play(), 2000 ) ;
+    this.playFire();
 
     this.audio.addEventListener('timeupdate', () => {
       const remaining = this.audio ? this.audio.duration - this.audio.currentTime : 0;
@@ -55,8 +56,6 @@ export class TabsPage {
     });
 
     this.router.navigate(['/tabs/tab2']);
-
-    this.playFire()
   }
 
   playFire() {
@@ -70,10 +69,12 @@ export class TabsPage {
 
   playAudio() {
     this.audio?.play();
+    this.playFire();
   }
 
   pauseAudio() {
     this.audio?.pause();
+    this.crackingFire?.pause();
   }
 
   rewind30Seconds() {

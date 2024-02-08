@@ -20,7 +20,6 @@ export class AppComponent implements OnInit {
   }
 
   showRipple(event: MouseEvent) {
-    console.log('showRipple')
     const ripple = document.createElement('div');
     ripple.className = 'ripple';
     document.body.appendChild(ripple);
