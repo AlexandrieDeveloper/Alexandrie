@@ -6,7 +6,7 @@ import { BookReaderService } from '../book-reader.service';
 import { CommonModule } from '@angular/common';
 import { Book } from '../library/library.page';
 import { IonButton, IonContent, IonAvatar } from '@ionic/angular/standalone';
-import { Router } from '@angular/router';
+import { NavigationStart, Router } from '@angular/router';
 
 @Component({
   selector: 'app-tabs',
@@ -21,6 +21,16 @@ export class TabsPage {
   constructor(public bookReaderService: BookReaderService, private router: Router) {
     addIcons({ book, flame, square, playSkipBack, playSkipForward, playCircle, pauseCircle, reload});
     bookReaderService.bookSelected$.subscribe(book => this.selectBook(book));
+
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationStart) {
+        if (event?.url === '/tabs/library' && !this.isBookPlaying) {
+          console.log('aa')
+          this.crackingFire?.pause();
+        }
+      }
+    });
+
   }
 
   selectedBook: Book | null = null;
@@ -60,9 +70,12 @@ export class TabsPage {
 
   playFire() {
     // const lightingFire = new Audio('/assets/audio/lighting-fire.mp3');
-    this.crackingFire = new Audio('assets/audio/fireAmplifie.mp3');
-    this.crackingFire.loop = true;
-    this.crackingFire.volume = 0.8;
+    if (this.crackingFire === null) {
+      console.log('aa')
+      this.crackingFire = new Audio('assets/audio/fireAmplifie.mp3');
+      this.crackingFire.loop = true;
+      this.crackingFire.volume = 0.8;
+    }
     // lightingFire.play();
     this.crackingFire.play();
   }

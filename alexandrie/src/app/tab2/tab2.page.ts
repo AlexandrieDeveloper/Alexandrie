@@ -30,7 +30,7 @@ export class Tab2Page implements OnInit {
 
       Object.assign(particle.style, {
         left: `${Math.random() * 100}%`, // Position de départ aléatoire en largeur
-        bottom: '250px', // Départ du bas du conteneur
+        bottom: 'calc(50% - 40px)', // Départ du bas du conteneur
         width: `${size}px`,
         height: `${size}px`,
         borderRadius: `${borderRadius}px`,

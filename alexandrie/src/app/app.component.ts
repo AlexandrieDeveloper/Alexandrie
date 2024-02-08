@@ -9,8 +9,6 @@ import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
   imports: [IonApp, IonRouterOutlet],
 })
 export class AppComponent implements OnInit {
-  showAniamtion: boolean = false;
-
   constructor(private renderer: Renderer2, private el: ElementRef) {}
 
   ngOnInit(): void {
@@ -28,13 +26,5 @@ export class AppComponent implements OnInit {
     setTimeout(() => {
       ripple.remove();
     }, 500);
-  }
-
-  showWave() {
-    this.showAniamtion = true;
-    setTimeout(() => {
-      this.showAniamtion = false;
-    }, 1500); // Léger délai pour permettre la réinitialisation de l'animation
-
   }
 }
